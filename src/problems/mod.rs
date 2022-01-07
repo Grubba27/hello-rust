@@ -29,7 +29,7 @@ pub mod problems {
             .filter(|&char| "()".contains(char))
             .map(|char| if char == '(' { 1 } else { -1 })
             .scan(0, |acc, x| {
-                *acc += x;
+                *acc = *acc + x;
                 Some(*acc)
             })
             .max()
