@@ -1,6 +1,3 @@
-use std::cmp::Ordering;
-use std::io;
-use rand::Rng;
 mod core;
 mod tax;
 mod tests;

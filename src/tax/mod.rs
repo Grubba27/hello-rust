@@ -5,7 +5,7 @@ pub mod tax {
         (if val < 1000 as f64 {
             0.0
         } else {
-            (val * 0.10)
+            val * 0.10
         } as f64)
     }
 }
