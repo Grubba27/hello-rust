@@ -1,6 +1,7 @@
 mod core;
 mod tax;
 mod tests;
+mod fp;
 
 fn main() {
     let final_value = core::core::get_ten_percent(30.2);
