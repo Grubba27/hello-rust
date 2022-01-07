@@ -2,7 +2,7 @@ mod core;
 mod tax;
 mod tests;
 mod fp;
-
+mod problems;
 fn main() {
     let final_value = core::core::get_ten_percent(30.2);
     println!("{}", final_value);
