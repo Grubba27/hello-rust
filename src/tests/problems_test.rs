@@ -2,6 +2,7 @@ use crate::problems::problems::biggest_sum;
 
 #[cfg(test)]
 mod problems_test {
+    use crate::problems::problems::get_nested_values;
     use super::*;
 
     #[test]
@@ -15,5 +16,17 @@ mod problems_test {
         assert_eq!(result, 15, "Testing sum, should return always 15");
     }
 
+    #[test]
+    pub fn get_nested_values_1_test() {
+        let str = String::from("(1+(2*3)+((8)/4))+1");
+        let result = get_nested_values(str);
+        assert_eq!(result, 3, "Testing depth should always return 3");
+    }
 
+    #[test]
+    pub fn get_nested_values_2_test() {
+        let str = String::from("(((4+3)/ (3*3(9+(4/2))))+3)");
+        let result = get_nested_values(str);
+        assert_eq!(result, 5, "Testing depth should always return 5");
+    }
 }

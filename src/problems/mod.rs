@@ -1,5 +1,4 @@
 pub mod problems {
-    ///
     /// given a list of lists which of the list is the biggest sum
     /// !the result of the table!
     ///
@@ -12,11 +11,28 @@ pub mod problems {
     /// | 5 5 5  | 5 + 5 + 5 |  15   |   X    |
     /// | 3 1 4  | 3 + 1 + 4 |  8    |        |
     /// ```
-
-    pub fn biggest_sum(val: Vec<Vec<i32>>) -> i32 {
-        val.iter()
+    pub fn biggest_sum(res_: Vec<Vec<i32>>) -> i32 {
+        res_.iter()
             .map(|x| x.iter().sum())
             .max()
             .unwrap()
+    }
+
+    /// Given a nest of values  in a string give me the biggest depth
+    /// ```
+    ///   (1+(2*3)+((8)/4))+1 -> return 3
+    ///   (((4+3)/ (3*3(9+(4/2))))+3)
+    /// ```
+    ///
+    pub fn get_nested_values(formula: String) -> i32 {
+        formula.chars()
+            .filter(|&char| "()".contains(char))
+            .map(|char| if char == '(' { 1 } else { -1 })
+            .scan(0, |acc, x| {
+                *acc += x;
+                Some(*acc)
+            })
+            .max()
+            .unwrap_or(0)
     }
 }
