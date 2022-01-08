@@ -1,7 +1,9 @@
-use crate::creational::{singleton, factory_method, abstract_factory, builder};
+use crate::creational::{singleton, factory_method, builder};
 
 #[cfg(test)]
 mod creational_test {
+    use crate::creational::builder::use_case_one_part;
+    use crate::creational::builder::use_case_many_parts;
     use crate::creational::factory_method::VehicleTypes;
     use super::*;
 
@@ -45,5 +47,17 @@ mod creational_test {
         assert_eq!(result, "Moved in air", "Creating a plane with a type only ");
     }
 
+    #[test]
+    fn builder_create_one_part_test(){
+        let result = use_case_one_part();
+        let compare = vec![String::from("parte a")];
+        assert_eq!(result, compare , "Comparing builder");
+    }
 
+    #[test]
+    fn builder_create_many_parts_test(){
+        let result = use_case_many_parts();
+        let compare = vec![String::from("parte a"), String::from("parte 2"), String::from("parte Z") ];
+        assert_eq!(result, compare , "Comparing builder");
+    }
 }
