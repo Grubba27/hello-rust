@@ -3,9 +3,24 @@ mod tax;
 mod tests;
 mod fp;
 mod problems;
+mod patterns;
+
+use crate::patterns::creational;
+
 fn main() {
-    let final_value = core::core::get_ten_percent(30.2);
-    println!("{}", final_value);
+
+    let singleton = creational::singleton::get_singleton();
+
+    println!("{:?}", singleton);
+
+    {
+        let mut change = singleton.lock().unwrap();
+        change.global_const = "teste 2".to_string();
+    }
+
+    let singleton_other = creational::singleton::get_singleton();
+    println!("{:?}", singleton_other);
+
 
 }
 

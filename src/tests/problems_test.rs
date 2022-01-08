@@ -1,8 +1,8 @@
 use crate::problems::problems::biggest_sum;
+use crate::problems::problems::get_nested_values;
 
 #[cfg(test)]
 mod problems_test {
-    use crate::problems::problems::get_nested_values;
     use super::*;
 
     #[test]

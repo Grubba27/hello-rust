@@ -1,4 +1,5 @@
-pub mod fp {
+
+
     ///
     /// big hard fucntion
     pub fn big_hard_fn() -> f32 {
@@ -48,4 +49,3 @@ pub mod fp {
     pub fn calculate_big_salary() -> f32 {
         calculate_salary_imposts_plus_transactions(5000.32, "big", very_big_hard_fn(big_hard_fn(), http_request()))
     }
-}

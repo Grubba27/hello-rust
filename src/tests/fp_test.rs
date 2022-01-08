@@ -1,4 +1,4 @@
-use crate::fp::fp::{calculate_big_salary, calculate_medium_salary, calculate_small_salary};
+use crate::fp::{calculate_big_salary, calculate_medium_salary, calculate_small_salary};
 
 #[cfg(test)]
 mod fp_test {
