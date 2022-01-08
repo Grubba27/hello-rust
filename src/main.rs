@@ -9,19 +9,6 @@ use crate::patterns::creational;
 
 fn main() {
 
-    let singleton = creational::singleton::get_singleton();
-
-    println!("{:?}", singleton);
-
-    {
-        let mut change = singleton.lock().unwrap();
-        change.global_const = "teste 2".to_string();
-    }
-
-    let singleton_other = creational::singleton::get_singleton();
-    println!("{:?}", singleton_other);
-
-
 }
 
 
