@@ -1,7 +1,8 @@
-use crate::creational::singleton;
+use crate::creational::{singleton, factory_method, abstract_factory, builder};
 
 #[cfg(test)]
 mod creational_test {
+    use crate::creational::factory_method::VehicleTypes;
     use super::*;
 
     #[test]
@@ -12,7 +13,7 @@ mod creational_test {
     }
 
     #[test]
-    fn update_singleton() {
+    fn update_singleton_test() {
         let singleton1 = singleton::get_singleton();
         {
             singleton::set_singleton("other", singleton1);
@@ -21,4 +22,28 @@ mod creational_test {
         let result = updated_singleton.lock().unwrap();
         assert_eq!(result.global_const, "other", "Altered singleton should have the name other");
     }
+
+
+    #[test]
+    fn abstract_factory_create_car() {
+        let car = factory_method::ShapeFactory::new_vehicle(&VehicleTypes::Car);
+        let result = car.translocate();
+        assert_eq!(result, "Moved in land", "Creating a car with a type only ");
+    }
+
+    #[test]
+    fn abstract_factory_create_boat() {
+        let boat = factory_method::ShapeFactory::new_vehicle(&VehicleTypes::Boat);
+        let result = boat.translocate();
+        assert_eq!(result, "Moved in water", "Creating a boat with a type only ");
+    }
+
+    #[test]
+    fn abstract_factory_create_plane() {
+        let plane = factory_method::ShapeFactory::new_vehicle(&VehicleTypes::Plane);
+        let result = plane.translocate();
+        assert_eq!(result, "Moved in air", "Creating a plane with a type only ");
+    }
+
+
 }
