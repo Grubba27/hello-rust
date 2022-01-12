@@ -1,6 +1,6 @@
 pub mod problems {
     /// given a list of lists which of the list is the biggest sum
-    /// !the result of the table!
+    /// as the result of the table!
     ///
     /// _Table_
     /// ```
