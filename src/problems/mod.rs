@@ -11,8 +11,8 @@ pub mod problems {
     /// | 5 5 5  | 5 + 5 + 5 |  15   |   X    |
     /// | 3 1 4  | 3 + 1 + 4 |  8    |        |
     /// ```
-    pub fn biggest_sum(res_: Vec<Vec<i32>>) -> i32 {
-        res_.iter()
+    pub fn biggest_sum(nums: Vec<Vec<i32>>) -> i32 {
+        nums.iter()
             .map(|x| x.iter().sum())
             .max()
             .unwrap()
@@ -24,8 +24,8 @@ pub mod problems {
     ///   (((4+3)/ (3*3(9+(4/2))))+3)
     /// ```
     ///
-    pub fn get_nested_values(formula: String) -> i32 {
-        formula.chars()
+    pub fn get_nested_values(strs: String) -> i32 {
+        strs.chars()
             .filter(|&char| "()".contains(char))
             .map(|char| if char == '(' { 1 } else { -1 })
             .scan(0, |acc, x| {
@@ -34,5 +34,13 @@ pub mod problems {
             })
             .max()
             .unwrap_or(0)
+    }
+
+
+    pub fn find_digits(nums: Vec<i32>) -> i32 {
+        nums.iter()
+            .map(|item| item.to_string().len())
+            .filter(|item| item % 2 == 0)
+            .count() as i32
     }
 }

@@ -1,5 +1,6 @@
 use crate::problems::problems::biggest_sum;
 use crate::problems::problems::get_nested_values;
+use crate::problems::problems::find_digits;
 
 #[cfg(test)]
 mod problems_test {
@@ -7,10 +8,10 @@ mod problems_test {
 
     #[test]
     pub fn biggest_sum_test() {
-        let v1 = vec![1, 2 ,3];
-        let v2 = vec![5, 5 ,5];
-        let v3 = vec![3, 1 ,4];
-        let big_vec = vec![v1, v2, v3,];
+        let v1 = vec![1, 2, 3];
+        let v2 = vec![5, 5, 5];
+        let v3 = vec![3, 1, 4];
+        let big_vec = vec![v1, v2, v3];
         let result = biggest_sum(big_vec);
 
         assert_eq!(result, 15, "Testing sum, should return always 15");
@@ -28,5 +29,12 @@ mod problems_test {
         let str = String::from("(((4+3)/ (3*3(9+(4/2))))+3)");
         let result = get_nested_values(str);
         assert_eq!(result, 5, "Testing depth should always return 5");
+    }
+
+    #[test]
+    pub fn get_even_number_test() {
+        let result = find_digits(vec![12, 345, 2, 6, 7896]);
+        assert_eq!(result, 2, "Finding number should return 2");
+
     }
 }
